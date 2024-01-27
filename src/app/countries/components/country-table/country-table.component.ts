@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Country } from '../../interfaces/country';
 
 @Component({
-  selector: 'app-country-table',
+  selector: 'countries-table',
   templateUrl: './country-table.component.html',
-  styles: ``
+  styles: `img { width:35px}`
 })
 export class CountryTableComponent {
 
+  @Input()
+  public countries: Country[] = [];
 }
