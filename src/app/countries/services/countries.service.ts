@@ -39,4 +39,13 @@ export class CountriesService {
     catchError(error=> of([]) )
  );
   }
+
+  searchCountryByAlphaCode(code:string) :Observable<Country |null>{
+    const url:string = `${this.apiUrl}/alpha/${code}`;
+    return this.http.get<Country[]>( url )
+    .pipe(
+      map( countries => countries.length>0 ? countries[0]:null),
+     catchError(error=> of(null) )
+  );
+  }
 }
